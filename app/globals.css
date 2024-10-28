@@ -34,6 +34,18 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.ant-card-body{
+padding: 0px !important;
+}
+.custom-card{
+  background: linear-gradient(93.7deg, #282828 0%, #666666 100.16%);
+  gap: 8px;
+  display: flex;
+  border-radius: 8px;
+  height:72px;
+  padding: 16px;
+
+}
 
 @media (prefers-color-scheme: dark) {
   html {
