@@ -1,71 +1,101 @@
 "use client";
 
 import React from "react";
-import { Card, Typography } from "antd";
+import { Card, Typography, Space, Flex, Badge } from "antd";
+import styled from "@emotion/styled";
+import Image from "next/image";
 
-// Untuk Next.js, kita perlu destructure Text dari Typography
 const { Text } = Typography;
 
-const DiamondIcon = () => (
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M16 2L4 14L16 26L28 14L16 2Z"
-      fill="#00C6FF"
-      filter="drop-shadow(0px 0px 4px rgba(0, 198, 255, 0.5))"
-    />
-  </svg>
-);
+// Styled components for custom styling
+const CardWrapper = styled.div`
+  position: relative;
+`;
 
-const DiamondProductCard = () => {
+const StyledCard = styled(Card)`
+  .ant-card-body {
+    padding: 20px;
+    background: linear-gradient(
+      145deg,
+      rgba(40, 40, 40, 0.9) 0%,
+      rgba(20, 20, 20, 0.9) 100%
+    );
+  }
+  background: #1e1e1e;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  overflow: hidden;
+`;
+
+const DiamondProductCard = ({ data }) => {
   return (
-    <div className="relative w-[300px]">
-      {/* Custom 15% OFF ribbon */}
-      <div className="absolute -right-1 -top-1 z-10">
-        <div className="bg-white text-black py-1 px-3 transform rotate-45 shadow-md font-semibold text-sm">
-          15% OFF
-        </div>
-      </div>
+    <Badge.Ribbon text="15%" color="white">
+      <CardWrapper>
+        <StyledCard>
+          <Space
+            direction="vertical"
+            size="small"
+            style={{ width: "100%", padding: "16px" }}
+          >
+            <Flex justify="space-between" align="center">
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: "24px",
+                  fontWeight: 600,
+                  margin: 0,
+                }}
+              >
+                {data.name}
+              </Text>
+              <Image
+                style={{
+                  position: "absolute",
+                  top: 50,
+                  right: 4,
+                }}
+                src={data.iconUrl}
+                width={50}
+                height={50}
+              />
+            </Flex>
 
-      <Card
-        className="bg-[#1E1E1E] border border-gray-700 rounded-lg overflow-hidden"
-        bodyStyle={{
-          padding: "20px",
-          background:
-            "linear-gradient(145deg, rgba(40,40,40,0.9) 0%, rgba(20,20,20,0.9) 100%)",
-        }}
-      >
-        <div className="space-y-2">
-          {/* Diamond amount */}
-          <div className="flex justify-between items-center">
-            <span className="text-white text-2xl font-semibold">
-              12976 Diamonds
-            </span>
-            <DiamondIcon />
-          </div>
+            <Text
+              style={{
+                color: "#9CA3AF",
+                fontSize: "14px",
+                display: "block",
+                margin: 0,
+              }}
+            >
+              (10839 + 2137 Bonus)
+            </Text>
 
-          {/* Bonus text */}
-          <span className="text-gray-400 block text-sm">
-            (10839 + 2137 Bonus)
-          </span>
-
-          {/* Price section */}
-          <div className="space-y-1 mt-4">
-            <span className="text-[#4ADE80] block text-xl font-semibold">
-              Rp 2.755.000,-
-            </span>
-            <span className="text-gray-500 line-through block">
-              Rp 2.783.100,-
-            </span>
-          </div>
-        </div>
-      </Card>
-    </div>
+            <Space direction="vertical" size={4} style={{ marginTop: "16px" }}>
+              <Text
+                style={{
+                  color: "#4ADE80",
+                  fontSize: "20px",
+                  fontWeight: 600,
+                  margin: 0,
+                }}
+              >
+                Rp {data.price},-
+              </Text>
+              <Text
+                style={{
+                  color: "#6B7280",
+                  textDecoration: "line-through",
+                  margin: 0,
+                }}
+              >
+                Rp {data.priceDiscount},-
+              </Text>
+            </Space>
+          </Space>
+        </StyledCard>
+      </CardWrapper>
+    </Badge.Ribbon>
   );
 };
 

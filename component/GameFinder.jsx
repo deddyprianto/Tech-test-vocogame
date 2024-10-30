@@ -3,6 +3,8 @@ import { Tabs, Card, Row, Col, Typography, Layout } from "antd";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
+import { useSelector, useDispatch } from "react-redux";
+import { setDataDetail } from "@/feature/dataSlicePersisted";
 
 const { Title } = Typography;
 const { Content } = Layout;
@@ -26,6 +28,7 @@ const GameContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `;
 
 const GameImage = styled.img`
@@ -74,6 +77,7 @@ const StyledTabs = styled(Tabs)`
 `;
 
 const GameFinder = ({ games }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -82,7 +86,12 @@ const GameFinder = ({ games }) => {
   };
 
   const GameCard = ({ game }) => (
-    <GameContainer onClick={() => router.push("/detail")}>
+    <GameContainer
+      onClick={() => {
+        dispatch(setDataDetail(game));
+        router.push("/detail");
+      }}
+    >
       <GameImage alt={game.title} src={game.image} />
       <GameTitle>{game.title}</GameTitle>
       <GamePublisher>{game.publisher}</GamePublisher>

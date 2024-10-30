@@ -1,7 +1,6 @@
+"use client";
 import View from "./View";
-export default function Home({data}) {
-
-
+export default function Home({ data }) {
   const carouselContent = [
     {
       title: "Starlight November 2023: Melissa Nightwalker",

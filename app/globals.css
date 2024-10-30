@@ -15,7 +15,29 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+.ant-collapse-content{
+  background-color: transparent !important;
+}
 
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
 body {
   color: var(--foreground);
   background: var(--background);
@@ -23,13 +45,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.ribbon-custom{
+  margin-top: -15px !important;
+}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
+.ant-ribbon-text{
+  color: black !important;
+}
+.card-custom{
+  border: none;
+}
+.ant-cardd{
+  border: none !important;
+  background-color: transparent !important;
+}
 a {
   color: inherit;
   text-decoration: none;

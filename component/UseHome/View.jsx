@@ -64,6 +64,7 @@ const CountdownTimer = styled.div`
 `;
 
 export default function View({ games, carouselContent }) {
+  console.log(games);
   return (
     <StyledContent>
       <div

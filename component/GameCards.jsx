@@ -34,7 +34,7 @@ const MobileCol = styled(Col)`
 `;
 
 const GameCards = () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+    const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
     <ScrollContainer>
