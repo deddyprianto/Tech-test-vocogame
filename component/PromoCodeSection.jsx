@@ -1,6 +1,7 @@
 import React from "react";
 import { Input, Button, Space, Typography } from "antd";
 import { SearchOutlined, TagOutlined, RightOutlined } from "@ant-design/icons";
+import SearchComponent from "./SearchComponent";
 
 const { Text } = Typography;
 
@@ -8,28 +9,7 @@ const PromoCodeSection = () => {
   return (
     <Space direction="vertical" size="middle" style={{ width: "100%" }}>
       {/* Input Promo Section */}
-      <Space.Compact style={{ width: "100%" }}>
-        <Input
-          prefix={<SearchOutlined style={{ color: "#8c8c8c" }} />}
-          placeholder="Ketik kode promo (opsional)"
-          style={{
-            backgroundColor: "#141414",
-            borderColor: "#434343",
-            color: "#fff",
-          }}
-        />
-        <Button
-          type="default"
-          style={{
-            backgroundColor: "#fff",
-            borderColor: "#fff",
-            color: "#000",
-          }}
-        >
-          Gunakan
-        </Button>
-      </Space.Compact>
-
+      <SearchComponent />
       {/* Available Promo Section */}
       <Button
         type="text"

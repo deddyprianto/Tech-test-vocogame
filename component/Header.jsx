@@ -1,8 +1,13 @@
 "use client";
 import { Input, Select, Button } from "antd";
-import { SearchOutlined, HomeOutlined } from "@ant-design/icons";
+import {
+  SearchOutlined,
+  HomeOutlined,
+  FileSearchOutlined,
+} from "@ant-design/icons";
 import styled from "@emotion/styled";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Styled Components
 
@@ -21,6 +26,7 @@ const NavMenu = styled.div`
 `;
 
 const Header = () => {
+  const router = useRouter();
   return (
     <div
       style={{
@@ -42,8 +48,21 @@ const Header = () => {
         GameManiac
       </Logo>
       <NavMenu>
-        <Button type="text" icon={<HomeOutlined />} style={{ color: "white" }}>
+        <Button
+          onClick={() => router.push("/")}
+          type="text"
+          icon={<HomeOutlined />}
+          style={{ color: "white" }}
+        >
           Beranda
+        </Button>
+        <Button
+          type="text"
+          icon={<FileSearchOutlined />}
+          style={{ color: "white" }}
+          onClick={() => router.push("/trackorder")}
+        >
+          Lacak Pemesanan
         </Button>
         <Input.Search
           placeholder="Lacak Pesanan"

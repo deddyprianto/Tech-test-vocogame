@@ -18,7 +18,14 @@ body {
 .ant-collapse-content{
   background-color: transparent !important;
 }
+.ant-input::placeholder {
+  color: #ffffff !important; 
+  opacity: 1 !important;
+}
 
+.iOeShw{
+  background-color: rgba(26, 26, 26, 1) !important;
+}
 .loader {
   width: 20px;
   height: 20px;

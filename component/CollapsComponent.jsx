@@ -1,6 +1,8 @@
 import React from "react";
 import { Typography, Card, Collapse, Radio } from "antd";
 import { UpOutlined, CheckOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { setPaymentMethod } from "@/feature/dataSlicePersisted";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -11,6 +13,8 @@ const CollapsComponent = ({
   label,
   data,
 }) => {
+  const dispatch = useDispatch();
+
   return (
     <Collapse
       expandIcon={({ isActive }) => (
@@ -35,11 +39,7 @@ const CollapsComponent = ({
           borderRadius: 8,
         }}
       >
-        <Radio.Group
-          value={selectedMethod}
-          onChange={(e) => setSelectedMethod(e.target.value)}
-          style={{ width: "100%" }}
-        >
+        <Radio.Group value={selectedMethod} style={{ width: "100%" }}>
           <div
             style={{
               display: "grid",
@@ -66,7 +66,10 @@ const CollapsComponent = ({
                     backgroundColor: "rgba(62, 62, 62, 1)",
                   }}
                   bodyStyle={{ padding: "16px" }}
-                  onClick={() => setSelectedMethod(item.name)}
+                  onClick={() => {
+                    dispatch(setPaymentMethod(item));
+                    setSelectedMethod(item.name);
+                  }}
                 >
                   <div
                     style={{

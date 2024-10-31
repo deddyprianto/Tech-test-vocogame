@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Typography, Row, Col, Button, Space, Divider } from "antd";
-import { CopyOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import { CopyOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 
@@ -95,7 +95,7 @@ const PaymentDetails = () => {
               </Text>
               <Text style={{ color: "white" }}>924936253</Text>
             </Col>
-            <Col>
+            <Col style={{ marginRight: "20px" }}>
               <Text style={{ color: "#999999", display: "block" }}>Fee</Text>
               <Text style={{ color: "white" }}>Rp 45,-</Text>
             </Col>

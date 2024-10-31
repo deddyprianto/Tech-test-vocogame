@@ -1,8 +1,22 @@
-import { Card, Typography, Row, Col, Button, Space, Divider } from "antd";
-import { CopyOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import { Card, Typography, Row, Col, Space } from "antd";
+import { useEffect, useState } from "react";
 const { Title, Text } = Typography;
 
 const PaymentTimer = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+  const seconds = time.getSeconds();
+
   return (
     <Card
       style={{
@@ -31,7 +45,7 @@ const PaymentTimer = () => {
               }}
             >
               <Title level={2} style={{ color: "white", margin: 0 }}>
-                7
+                {hours.toString().padStart(2, "0")}
               </Title>
               <Text style={{ color: "#999999" }}>Jam</Text>
             </Card>
@@ -46,7 +60,7 @@ const PaymentTimer = () => {
               }}
             >
               <Title level={2} style={{ color: "white", margin: 0 }}>
-                29
+                {minutes.toString().padStart(2, "0")}
               </Title>
               <Text style={{ color: "#999999" }}>Menit</Text>
             </Card>
@@ -61,7 +75,7 @@ const PaymentTimer = () => {
               }}
             >
               <Title level={2} style={{ color: "white", margin: 0 }}>
-                35
+                {seconds.toString().padStart(2, "0")}
               </Title>
               <Text style={{ color: "#999999" }}>Detik</Text>
             </Card>

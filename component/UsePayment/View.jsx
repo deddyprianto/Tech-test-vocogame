@@ -1,13 +1,10 @@
 "use client";
 import PaymentTimer from "../PaymentTimer";
 import PaymentDetails from "../PaymentDetails";
-import { useMediaQuery } from "react-responsive";
 import { Col, Row } from "antd";
 import QrCode from "../QrCode";
 
-const MLBBPayment = () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-
+const MLBBPayment = ({ isMobile, paymentSelected }) => {
   return (
     <div
       style={{
@@ -19,7 +16,7 @@ const MLBBPayment = () => {
       <Row gutter={[20, 20]}>
         <Col xs={24} md={8} lg={8}>
           <PaymentTimer />
-          <QrCode />
+          <QrCode paymentSelected={paymentSelected} />
         </Col>
         <Col xs={24} md={16} lg={16}>
           <PaymentDetails />

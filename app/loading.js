@@ -9,17 +9,18 @@ const { Header, Sider, Content, Footer } = Layout;
 const StyledLayout = styled(Layout)`
   height: 100vh;
   width: 100vw;
+  background: rgba(26, 26, 26, 1);
 `;
 
 const StyledHeader = styled(Header)`
-  background: #fff;
+  background: rgba(40, 40, 40, 1);
   padding: 0 24px;
   display: flex;
   align-items: center;
 `;
 
 const StyledSider = styled(Sider)`
-  background: #fff;
+  background: rgba(40, 40, 40, 1);
   padding: 24px;
 `;
 
@@ -30,7 +31,7 @@ const StyledContent = styled(Content)`
 `;
 
 const StyledFooter = styled(Footer)`
-  background: #fff;
+  background: rgba(40, 40, 40, 1);
   padding: 16px 24px;
 `;
 
@@ -42,7 +43,7 @@ const CardGrid = styled.div`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: rgba(40, 40, 40, 1);
   padding: 24px;
   border-radius: 8px;
 `;

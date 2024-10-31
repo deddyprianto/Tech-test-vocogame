@@ -1,8 +1,10 @@
 import { Card } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-const QrCode = () => {
+const QrCode = ({ paymentSelected }) => {
+  const route = useRouter();
   return (
     <Card
       style={{
@@ -24,9 +26,9 @@ const QrCode = () => {
           display: "flex",
         }}
       >
-        <Image src="/images/qris.png" alt="" height={50} width={70} />
+        <Image src={paymentSelected?.pathImage} alt="" height={50} width={70} />
         <div>
-          <p>Scan QRIS</p>
+          <p>{paymentSelected?.name}</p>
           <p>
             Shopee Pay, OVO, DANA, Gopay, LinkAja, dan transfer bank via QRIS
           </p>
@@ -59,6 +61,23 @@ const QrCode = () => {
         }}
       >
         Unduh QRCODE
+      </div>
+      <div
+        style={{
+          backgroundColor: "blue",
+          borderRadius: "12px",
+          padding: "12px",
+          marginTop: "12px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "white",
+          fontWeight: 600,
+          cursor: "pointer",
+        }}
+        onClick={() => route.push("/invoice")}
+      >
+        Lihat Invoice
       </div>
     </Card>
   );
